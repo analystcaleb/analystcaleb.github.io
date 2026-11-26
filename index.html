@@ -1,1134 +1,360 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Analyst Caleb Portfolio - Data Analyst specializing in Python, SQL, Excel, Power BI, Machine Learning and data-driven solutions.">
-
-<meta name="author" content="Caleb Usman Kaderi">
-
-<title>Analyst Caleb | Data Analyst Portfolio</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<style>
-
-/* =========================
-   GLOBAL SETTINGS
-========================= */
-
-:root {
-    --bg: #080d18;
-    --card: #111a2b;
-    --card2: #152137;
-    --text: #f3f6fc;
-    --muted: #a3afc2;
-    --primary: #38bdf8;
-    --secondary: #818cf8;
-    --border: rgba(255,255,255,0.09);
-    --shadow: 0 15px 40px rgba(0,0,0,0.25);
-}
-
-body.light {
-    --bg: #f5f8fc;
-    --card: #ffffff;
-    --card2: #eaf1fa;
-    --text: #142033;
-    --muted: #64748b;
-    --primary: #0284c7;
-    --secondary: #6366f1;
-    --border: rgba(0,0,0,0.09);
-    --shadow: 0 15px 40px rgba(0,0,0,0.07);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    line-height: 1.7;
-    transition: background 0.3s, color 0.3s;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button {
-    font-family: inherit;
-    cursor: pointer;
-}
-
-.container {
-    width: 90%;
-    max-width: 1150px;
-    margin: auto;
-}
-
-.section {
-    padding: 100px 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 55px;
-}
-
-.section-title h2 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.section-title h2 span {
-    color: var(--primary);
-}
-
-.section-title p {
-    color: var(--muted);
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background: rgba(8,13,24,0.88);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
-}
-
-body.light header {
-    background: rgba(245,248,252,0.90);
-}
-
-.navbar {
-    height: 75px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.logo span {
-    color: var(--primary);
-}
-
-.nav-links {
-    display: flex;
-    gap: 27px;
-    align-items: center;
-}
-
-.nav-links a {
-    color: var(--muted);
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--primary);
-}
-
-.nav-actions {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.theme-btn,
-.menu-btn {
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--text);
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    font-size: 1rem;
-}
-
-.menu-btn {
-    display: none;
-}
-
-/* =========================
-   HERO SECTION
-========================= */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-top: 100px;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 450px;
-    height: 450px;
-    background: var(--primary);
-    opacity: 0.09;
-    filter: blur(130px);
-    top: 10%;
-    right: -100px;
-    border-radius: 50%;
-}
-
-.hero-content {
-    display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.badge {
-    display: inline-block;
-    padding: 8px 16px;
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    color: var(--primary);
-    font-size: 0.85rem;
-    margin-bottom: 25px;
-    background: var(--card);
-}
-
-.hero h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.8rem, 6vw, 4.8rem);
-    line-height: 1.12;
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: var(--primary);
-}
-
-.hero-description {
-    color: var(--muted);
-    font-size: 1.05rem;
-    max-width: 600px;
-    margin-bottom: 30px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 13px 24px;
-    border-radius: 8px;
-    font-weight: 700;
-    display: inline-flex;
-    gap: 10px;
-    align-items: center;
-    transition: 0.3s;
-}
-
-.btn-primary {
-    background: var(--primary);
-    color: #06111c;
-}
-
-.btn-primary:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(56,189,248,0.25);
-}
-
-.btn-outline {
-    border: 1px solid var(--border);
-    color: var(--text);
-}
-
-.btn-outline:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-}
-
-.hero-card {
-    background: linear-gradient(145deg,var(--card),var(--card2));
-    border: 1px solid var(--border);
-    border-radius: 25px;
-    padding: 40px 30px;
-    text-align: center;
-    box-shadow: var(--shadow);
-}
-
-.avatar {
-    width: 145px;
-    height: 145px;
-    margin: auto auto 20px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    font-family: 'Space Grotesk';
-    font-weight: 700;
-    color: #06111c;
-    background: linear-gradient(135deg,var(--primary),var(--secondary));
-    border: 5px solid rgba(56,189,248,0.2);
-}
-
-.hero-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
-.hero-card p {
-    color: var(--muted);
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 18px;
-    margin-top: 22px;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background: var(--card2);
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    transition: 0.3s;
-}
-
-.social-links a:hover {
-    background: var(--primary);
-    color: #06111c;
-    transform: translateY(-4px);
-}
-
-/* =========================
-   ABOUT
-========================= */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.about-text p {
-    color: var(--muted);
-    margin-bottom: 18px;
-}
-
-.about-info {
-    background: var(--card);
-    padding: 30px;
-    border: 1px solid var(--border);
-    border-radius: 15px;
-}
-
-.info-item {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
-}
-
-.info-item:last-child {
-    border-bottom: none;
-}
-
-.info-item strong {
-    color: var(--primary);
-}
-
-.info-item span {
-    text-align: right;
-    color: var(--muted);
-}
-
-/* =========================
-   SKILLS
-========================= */
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
-}
-
-.skill-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 25px;
-    transition: 0.3s;
-}
-
-.skill-card:hover {
-    transform: translateY(-7px);
-    border-color: var(--primary);
-}
-
-.skill-card i {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 15px;
-}
-
-.skill-card h3 {
-    margin-bottom: 8px;
-}
-
-.skill-card p {
-    color: var(--muted);
-    font-size: 0.9rem;
-}
-
-/* =========================
-   PROJECTS
-========================= */
-
-.filter-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 35px;
-}
-
-.filter-btn {
-    background: var(--card);
-    color: var(--muted);
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    padding: 9px 20px;
-}
-
-.filter-btn.active,
-.filter-btn:hover {
-    background: var(--primary);
-    color: #06111c;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 25px;
-}
-
-.project-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: 0.3s;
-}
-
-.project-card:hover {
-    transform: translateY(-7px);
-    box-shadow: var(--shadow);
-}
-
-.project-image {
-    height: 180px;
-    background: linear-gradient(135deg,#0e7490,#312e81);
-    display: grid;
-    place-items: center;
-    font-size: 3.5rem;
-    color: white;
-}
-
-.project-content {
-    padding: 25px;
-}
-
-.project-content h3 {
-    margin-bottom: 12px;
-}
-
-.project-content p {
-    color: var(--muted);
-    font-size: 0.92rem;
-    margin-bottom: 18px;
-}
-
-.tags {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.tags span {
-    background: var(--card2);
-    color: var(--primary);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.75rem;
-}
-
-.project-link {
-    color: var(--primary);
-    font-weight: 700;
-}
-
-.project-card.hidden {
-    display: none;
-}
-
-/* =========================
-   EXPERIENCE
-========================= */
-
-.timeline {
-    max-width: 800px;
-    margin: auto;
-    border-left: 2px solid var(--primary);
-    padding-left: 30px;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 35px;
-    background: var(--card);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-}
-
-.timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -39px;
-    top: 30px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--primary);
-}
-
-.timeline-item h3 {
-    color: var(--primary);
-}
-
-.timeline-item p {
-    color: var(--muted);
-}
-
-.timeline-date {
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-}
-
-/* =========================
-   EDUCATION
-========================= */
-
-.education-card {
-    max-width: 700px;
-    margin: auto;
-    text-align: center;
-    padding: 40px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-}
-
-.education-card i {
-    font-size: 3rem;
-    color: var(--primary);
-    margin-bottom: 15px;
-}
-
-.education-card p {
-    color: var(--muted);
-}
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 30px;
-}
-
-.contact-info,
-.contact-form {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 30px;
-}
-
-.contact-detail {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
-    align-items: center;
-}
-
-.contact-detail i {
-    width: 45px;
-    height: 45px;
-    background: var(--card2);
-    color: var(--primary);
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-}
-
-.contact-detail p {
-    color: var(--muted);
-    font-size: 0.85rem;
-    overflow-wrap: anywhere;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 18px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    background: var(--bg);
-    color: var(--text);
-    font-family: inherit;
-    outline: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary);
-}
-
-.contact-form textarea {
-    resize: vertical;
-    min-height: 130px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 30px 0;
-    text-align: center;
-}
-
-footer p {
-    color: var(--muted);
-}
-
-footer span {
-    color: var(--primary);
-}
-
-/* =========================
-   SCROLL ANIMATIONS
-========================= */
-
-.reveal {
-    opacity: 1;
-    transform: translateY(0);
-    transition: 0.7s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =========================
-   BACK TO TOP
-========================= */
-
-.back-top {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 45px;
-    height: 45px;
-    border: none;
-    border-radius: 10px;
-    background: var(--primary);
-    color: #06111c;
-    display: none;
-    z-index: 500;
-    font-size: 1.1rem;
-}
-
-.back-top.show {
-    display: block;
-}
-
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
-
-@media(max-width:900px) {
-
-    .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analyst Caleb Portfolio | Caleb Kaderi — Data Analyst & Machine Learning</title>
+  <meta
+    name="description"
+    content="Portfolio of Caleb Kadiri (Analyst Caleb) — Data Analyst & Machine Learning practitioner specializing in Python, SQL, Excel, Power BI, and predictive analytics."
+  />
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            },
+            accent: {
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+            },
+          },
+          boxShadow: {
+            glow: '0 0 40px -10px rgba(79, 70, 229, 0.35)',
+            card: '0 10px 30px -12px rgba(15, 23, 42, 0.08)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Custom subtle grid & ambient styling */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(99, 102, 241, 0.14) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .dark .bg-grid-pattern {
+      background-image: radial-gradient(rgba(129, 140, 248, 0.13) 1px, transparent 1px);
     }
 
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
+    /* Scroll reveal transitions */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .hero-buttons {
-        justify-content: center;
+    /* Smooth modal entrance */
+    @keyframes modalPop {
+      from {
+        opacity: 0;
+        transform: scale(0.96) translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    .modal-animate {
+      animation: modalPop 0.22s ease-out forwards;
     }
 
-    .hero-card {
-        max-width: 400px;
-        margin: auto;
-        width: 100%;
+    /* Custom thin scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
     }
-
-    .about-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
+    ::-webkit-scrollbar-track {
+      background: transparent;
     }
-
-    .skills-grid {
-        grid-template-columns: repeat(2,1fr);
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.35);
+      border-radius: 9999px;
     }
-}
-
-@media(max-width:700px) {
-
-    .menu-btn {
-        display: block;
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 0.55);
     }
-
-    .nav-links {
-        position: absolute;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        background: var(--card);
-        display: none;
-        flex-direction: column;
-        padding: 25px;
-        border-bottom: 1px solid var(--border);
-        gap: 20px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section {
-        padding: 75px 0;
-    }
-
-    .section-title h2 {
-        font-size: 2rem;
-    }
-}
-
-@media(max-width:450px) {
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 2.7rem;
-    }
-
-    .info-item {
-        flex-direction: column;
-        gap: 3px;
-    }
-
-    .info-item span {
-        text-align: left;
-    }
-}
-
-</style>
+  </style>
 </head>
-
-<body>
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
-<header>
-
-<nav class="navbar container">
-
-<a href="#home" class="logo">
-Analyst<span>Caleb.</span>
-</a>
-
-<div class="nav-links" id="navLinks">
-
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#experience">Experience</a>
-<a href="#contact">Contact</a>
-
-</div>
-
-<div class="nav-actions">
-
-<button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
-<i class="fas fa-moon"></i>
-</button>
-
-<button class="menu-btn" id="menuBtn" aria-label="Open menu">
-<i class="fas fa-bars"></i>
-</button>
-
-</div>
-
-</nav>
-
-</header>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero" id="home">
-
-<div class="container hero-content">
-
-<div class="reveal">
-
-<div class="badge">
-<i class="fas fa-circle"></i>
- Available for Opportunities
-</div>
-
-<h1>
-Hello, I'm <span>Caleb Usman Kaderi.</span>
-</h1>
-
-<h2>
-Data Analyst & Machine Learning Enthusiast
-</h2>
-
-<p class="hero-description">
-
-I transform raw data into meaningful insights that drive
-smarter decisions. Passionate about data analytics,
-visualization, programming, and solving real-world problems
-through technology.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="#projects" class="btn btn-primary">
-Explore My Projects
-<i class="fas fa-arrow-right"></i>
-</a>
-
-<a href="#contact" class="btn btn-outline">
-Contact Me
-<i class="fas fa-envelope"></i>
-</a>
-
-</div>
-
-</div>
-
-
-<div class="hero-card reveal">
-
-<div class="avatar">CK</div>
-
-<h3>Caleb Usman Kaderi</h3>
-
-<p>Data Analyst</p>
-
-<p>Based in Nigeria 🇳🇬</p>
-
-<div class="social-links">
-
-<a href="mailto:kadericaleb@gmail.com" aria-label="Email">
-<i class="fas fa-envelope"></i>
-</a>
-
-<a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-<i class="fab fa-linkedin-in"></i>
-</a>
-
-<a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-<i class="fab fa-github"></i>
-</a>
-
-<a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X">
-<i class="fab fa-x-twitter"></i>
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section class="section" id="about">
-
-<div class="container">
-
-<div class="section-title reveal">
-<h2>About <span>Me</span></h2>
-<p>Get to know more about my journey and passion.</p>
-</div>
-
-
-<div class="about-grid">
-
-<div class="about-text reveal">
-
-<h3>Turning Data Into Decisions</h3>
-
-<br>
-
-<p>
-
-I am a Computer Science graduate from the Federal
-University of Technology, Minna, with a strong interest
-in Data Analytics, Machine Learning, and technology.
-
-</p>
-
-<p>
-
-My journey combines technical knowledge with practical
-experience. I have developed skills in Python programming,
-SQL, Microsoft Excel, Power BI, data cleaning,
-exploratory data analysis, and machine learning.
-
-</p>
-
-<p>
-
-Beyond technology, I have over three years of experience
-in the agricultural sector, where I developed practical
-problem-solving, teamwork, and organizational skills.
-
-</p>
-
-<p>
-
-My goal is to use data to uncover patterns, solve
-complex problems, and help organizations make
-evidence-based decisions.
-
-</p>
-
-</div>
-
-
-<div class="about-info reveal">
-
-<div class="info-item">
-<strong>Name</strong>
-<span>Caleb Usman Kaderi</span>
-</div>
-
-<div class="info-item">
-<strong>Profession</strong>
-<span>Data Analyst</span>
-</div>
-
-<div class="info-item">
-<strong>Education</strong>
-<span>B.Sc. Computer Science</span>
-</div>
-
-<div class="info-item">
-<strong>University</strong>
-<span>FUT Minna</span>
-</div>
-
-<div class="info-item">
-<strong>Graduation</strong>
-<span>2025</span>
-</div>
-
-<div class="info-item">
-<strong>Location</strong>
-<span>Nasarawa State, Nigeria</span>
-</div>
-
-<div class="info-item">
-<strong>Email</strong>
-<span>kadericaleb@gmail.com</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     SKILLS
-========================= -->
-
-<section class="section" id="skills">
-
-<div class="container">
-
-<div class="section-title reveal">
-<h2>Technical <span>Skills</span></h2>
-<p>Technologies and tools I use to solve problems.</p>
-</div>
-
-
-<div class="skills-grid">
-
-<div class="skill-card reveal">
-<i class="fab fa-python"></i>
-<h3>Python Programming</h3>
-<p>Data manipulation, automation, analysis and machine learning using Python.</p>
-</div>
-
-<div class="skill-card reveal">
-<i class="fas fa-database"></i>
-<h3>SQL & Database</h3>
-<p>Data querying, cleaning, transformation, joins, CTEs and database management.</p>
-</div>
-
-<div class="skill-card reveal">
-<i class="fas fa-file-excel"></i>
-<h3>Microsoft Excel</h3>
-<p>Data cleaning, formulas, pivot tables, analysis and reporting.</p>
-</div>
-
-<div class="skill-card reveal">
-<i class="fas fa-chart-bar"></i>
-<h3>Power BI</h3>
-<p>Interactive dashboards, data visualization, KPIs and business intelligence.</p>
-</div>
-
-<div class="skill-card reveal">
-<i class="fas fa-brain"></i>
-<h3>Machine Learning</h3>
-<p>Predictive modeling, classification, regression and model evaluation.</p>
-</div>
-
-<div class="skill-card reveal">
-<i class="fas fa-chart-line"></i>
-<h3>Data Analytics</h3>
-<p>Exploratory analysis, statistical interpretation and data-driven insights.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     PROJECTS
-========================= -->
-
-<section class="section" id="projects">
-
-<div class="container">
-
-<div class="section-title reveal">
-<h2>Featured <span>Projects</span></h2>
-<p>Some of my practical data analytics and machine learning work.</p>
-</div>
-
-
-<div class="filter-buttons">
-
-<button class="filter-btn active" data-filter="all">All Projects</button>
-
-<button class="filter-btn" data-filter="analytics">Data Analytics</button>
-
-<button class="filter-btn" data-filter="machine">Machine Learning</button>
-
-<button class="filter-btn" data-filter="sql">SQL</button>
-
-</div>
-
-
-<div class="projects-grid">
-
-
-<!-- PROJECT 1 -->
-
-<div class="project-card reveal" data-category="analytics sql">
-
-<div class="project-image">
-<i class="fas fa-heart-pulse"></i>
-</div>
-
-<div class="project-content">
-
-<h3>Hypertension Risk Analysis</h3>
-
-<p>
-
-Analyzed patient demographic, lifestyle and clinical
-characteristics to identify hypertension risk profiles
-and uncover meaningful health-related patterns.
-
-</p>
-
-<div class="tags">
-<span>SQL Server</span>
-<span>Power BI</span>
-<span>Excel</span>
-<span>Healthcare</span>
-</div
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 antialiased selection:bg-brand-600 selection:text-white transition-colors duration-300">
+
+  <!-- Toast / Status Notification Banner (replaces alert()) -->
+  <div
+    id="toast-container"
+    class="fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 max-w-sm w-[calc(100%-2.5rem)] pointer-events-none"
+    aria-live="polite"
+  ></div>
+
+  <!-- Navigation Header -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/85 dark:bg-slate-950/85 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-2.5 group focus:outline-none">
+        <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-600 to-accent-500 text-white font-mono font-bold text-sm flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+          AC
+        </span>
+        <div class="leading-tight">
+          <span class="block font-bold text-slate-900 dark:text-white text-sm sm:text-base tracking-tight">
+            Analyst Caleb <span class="text-brand-600 dark:text-brand-400">Portfolio</span>
+          </span>
+          <span class="hidden sm:block text-[11px] font-mono text-slate-500 dark:text-slate-400">
+            Data &bull; ML &bull; BI
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Primary Navigation">
+        <a href="#about" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 transition-colors">About</a>
+        <a href="#skills" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 transition-colors">Skills</a>
+        <a href="#projects" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 transition-colors">Projects</a>
+        <a href="#experience" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 transition-colors">Experience</a>
+        <a href="#education" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 transition-colors">Education</a>
+        <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100/70 dark:hover:bg-slate-800/60 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right Actions: Theme Switcher + CV + Mobile Menu Button -->
+      <div class="flex items-center gap-2">
+        <!-- Dark / Light Mode Toggle -->
+        <button
+          id="theme-toggle"
+          type="button"
+          aria-label="Toggle dark or light mode"
+          class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-amber-300 hover:border-brand-400 dark:hover:border-brand-500 transition-all"
+        >
+          <!-- Sun icon (visible in dark mode) -->
+          <svg id="icon-sun" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <!-- Moon icon (visible in light mode) -->
+          <svg id="icon-moon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <!-- Compact CV Button on Desktop -->
+        <button
+          type="button"
+          data-cv-download
+          class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-600 hover:bg-brand-700 text-white shadow-sm transition-colors"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          CV PDF
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          class="lg:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-brand-400 transition-colors"
+        >
+          <svg id="menu-open-icon" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div
+      id="mobile-menu"
+      class="lg:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 py-4 space-y-1"
+    >
+      <a href="#about" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">About Me</a>
+      <a href="#skills" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Technical Skills</a>
+      <a href="#projects" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Projects Showcase</a>
+      <a href="#experience" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
+      <a href="#education" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Education</a>
+      <a href="#contact" class="mobile-nav-link block px-3 py-2.5 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
+      <div class="pt-2">
+        <button
+          type="button"
+          data-cv-download
+          class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Download CV (PDF)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="relative overflow-hidden bg-grid-pattern pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28 border-b border-slate-200/70 dark:border-slate-800/70">
+      <!-- Ambient Gradient Blobs -->
+      <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-500/15 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-accent-500/15 blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <!-- Left Hero Copy -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/80 border border-brand-200/80 dark:border-brand-800/80 text-brand-700 dark:text-brand-300 text-xs sm:text-sm font-medium">
+              <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse"></span>
+              <span>Analyst Caleb Portfolio &bull; Available for Analytics &amp; ML Roles</span>
+            </div>
+
+            <div class="space-y-3">
+              <h1 class="text-3xl sm:text-5xl lg:text-[3.35rem] font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+                Caleb Kadiri
+                <span class="block mt-1.5 bg-gradient-to-r from-brand-600 via-indigo-500 to-accent-500 dark:from-brand-400 dark:via-indigo-300 dark:to-accent-400 bg-clip-text text-transparent">
+                  Data Analyst &amp; Machine Learning Practitioner
+                </span>
+              </h1>
+            </div>
+
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+              I transform messy operational datasets into clear executive dashboards, SQL pipelines, and predictive machine learning models. Combining statistical rigor with practical business context, I help organizations cut guesswork, spot trends early, and make confident decisions.
+            </p>
+
+            <!-- Call-to-Action Buttons -->
+            <div class="flex flex-wrap items-center gap-3.5 pt-1">
+              <a
+                href="#projects"
+                class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm sm:text-base bg-brand-600 hover:bg-brand-700 text-white shadow-lg shadow-brand-600/25 hover:-translate-y-0.5 transition-all"
+              >
+                <span>Explore Projects</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+
+              <button
+                type="button"
+                data-cv-download
+                class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm sm:text-base bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-400 hover:-translate-y-0.5 transition-all"
+              >
+                <svg class="w-4 h-4 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>Download CV</span>
+              </button>
+
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl font-semibold text-sm text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+              >
+                <span>Get in Touch</span>
+              </a>
+            </div>
+
+            <!-- Quick Proof Strip -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-6 pt-4 border-t border-slate-200/80 dark:border-slate-800/80 max-w-xl">
+              <div>
+                <p class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono">250K+</p>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Records Modeled &amp; Cleaned</p>
+              </div>
+              <div>
+                <p class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono">92.4%</p>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Peak ML Model Accuracy</p>
+              </div>
+              <div>
+                <p class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-mono">12+</p>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Dashboards &amp; Pipelines</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Analytical Workflow & Live Snapshot Card -->
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-glow p-5 sm:p-6 space-y-5">
+              <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+                <div class="flex items-center gap-2.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                  <span class="font-mono text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    Analytics Pipeline Snapshot
+                  </span>
+                </div>
+                <span class="font-mono text-xs px-2.5 py-1 rounded-md bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 font-medium">
+                  v2026.1
+                </span>
+              </div>
+
+              <!-- Pipeline Steps -->
+              <div class="space-y-3">
+                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 flex items-start gap-3">
+                  <span class="font-mono text-xs font-bold px-2 py-1 rounded-md bg-brand-600 text-white mt-0.5">01</span>
+                  <div>
+                    <h2 class="text-sm font-bold text-slate-900 dark:text-white">Ingest &amp; Wrangle (SQL + Python)</h2>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                      Automated deduplication, null imputation, window functions &amp; feature engineering.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 flex items-start gap-3">
+                  <span class="font-mono text-xs font-bold px-2 py-1 rounded-md bg-indigo-600 text-white mt-0.5">02</span>
+                  <div>
+                    <h2 class="text-sm font-bold text-slate-900 dark:text-white">Predict &amp; Segment (Scikit-Learn)</h2>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                      Cross-validated classification, regression &amp; time-series forecasting with SHAP/feature insights.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 flex items-start gap-3">
+                  <span class="font-mono text-xs font-bold px-2 py-1 rounded-md bg-accent-600 text-white mt-0.5">03</span>
+                  <div>
+                    <h2 class="text-sm font-bold text-slate-900 dark:text-white">Communicate (Power BI &amp; Excel)</h2>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                      DAX KPIs, drill-through reports &amp; decision memos tailored for stakeholders.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mini Sample Metric Bar Visualization -->
+              <div class="pt-2 space-y-2.5">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-medium text-slate-600 dark:text-slate-300">Reporting Turnaround Reduction</span>
+                  <span class="font-mono font-semibold text-accent-600 dark:text-accent-400">-45% hrs</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                  <div class="h-full w-4/5 rounded-full bg-gradient-to-r from-brand-600 to-accent-500"></div>
+                </div>
+                <p class="text-[11px] text-
